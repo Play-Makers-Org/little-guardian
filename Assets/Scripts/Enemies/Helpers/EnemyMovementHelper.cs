@@ -19,4 +19,22 @@ public class EnemyMovementHelper
         Vector2 directionVelocity = direction.normalized;
         rb.velocity = directionVelocity * _moveSpeed;
     }
+
+    public void MoveTowardsPlayerAndRetreat(float distance, float retreatDistance)
+    {
+        var playerDistance = Vector2.Distance(_player.transform.position, _obj.transform.position);
+
+        if (playerDistance > distance)
+        {
+            _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, _moveSpeed * Time.deltaTime);
+        }
+        else if (playerDistance < retreatDistance)
+        {
+            _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, _moveSpeed * Time.deltaTime * -1);
+        }
+        else
+        {
+            Debug.Log("Enemy Stopped !!!");
+        }
+    }
 }
