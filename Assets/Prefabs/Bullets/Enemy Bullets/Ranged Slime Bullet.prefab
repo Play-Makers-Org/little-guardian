@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5986127914310692789}
   - component: {fileID: 5986127914310692790}
   - component: {fileID: 5986127914310692795}
-  - component: {fileID: 5986127914310692794}
   - component: {fileID: 1328274023721302480}
+  - component: {fileID: 1820244316648212464}
   m_Layer: 0
   m_Name: Ranged Slime Bullet
   m_TagString: Untagged
@@ -125,20 +125,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5986127914310692794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5986127914310692791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691c15efff96a4447ba291bf476117d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
-  _force: 5
 --- !u!50 &1328274023721302480
 Rigidbody2D:
   serializedVersion: 4
@@ -166,3 +152,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1820244316648212464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5986127914310692791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a84e678e9fcfe14dad5b33ce0c3f4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
