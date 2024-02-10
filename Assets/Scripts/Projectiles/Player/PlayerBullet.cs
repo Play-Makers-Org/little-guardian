@@ -7,12 +7,11 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] private float _force = 6f;
 
     private Rigidbody2D _rb;
+    public Vector2 direction;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePos - transform.position).normalized;
         _rb.velocity = new Vector2(direction.x, direction.y).normalized * _force;
     }
 
