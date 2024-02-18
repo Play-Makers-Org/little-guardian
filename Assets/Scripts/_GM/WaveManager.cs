@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
@@ -34,23 +30,23 @@ public class WaveManager : MonoBehaviour
 
     private float _lastSpawnTime;
 
-    private RandomPosGenerator _posGenerator = new RandomPosGenerator(1,1);
+    private RandomPosGenerator _posGenerator = new RandomPosGenerator(GeneralConstants.mapBoundaries, 1, 1);
 
     private bool isWavesFinished = false;
 
-    private void Start()
+    private void Awake()
     {
         _currentWaveStatus = WaveStatus.CHANGING;
     }
 
     private void Update()
     {
-        if(_currentWaveStatus == WaveStatus.CHECKING)
+        if (_currentWaveStatus == WaveStatus.CHECKING)
         {
-            var enemy = GameObject.FindGameObjectWithTag("Enemy");
-            if(enemy == null)
+            var enemy = GameObject.FindGameObjectWithTag(TagConstants.EnemyTag);
+            if (enemy == null)
             {
-                _currentWaveStatus =  WaveStatus.CHANGING;
+                _currentWaveStatus = WaveStatus.CHANGING;
             }
         }
 
@@ -63,14 +59,14 @@ public class WaveManager : MonoBehaviour
 
         if (!isWavesFinished)
         {
-            if(_currentWaveStatus == WaveStatus.WAITING)
+            if (_currentWaveStatus == WaveStatus.WAITING)
             {
                 _currentWaveWaitingTime -= Time.deltaTime;
                 if (_currentWaveWaitingTime <= 0)
                     _currentWaveStatus = WaveStatus.SPAWNING;
             }
 
-            if(_currentWaveStatus == WaveStatus.SPAWNING)
+            if (_currentWaveStatus == WaveStatus.SPAWNING)
             {
                 if (_currentWave.enemyCount > 0)
                 {
@@ -81,7 +77,7 @@ public class WaveManager : MonoBehaviour
                         {
                             int randomIndex = (int)Random.Range(0, _currentWave.enemyPrefabs.Length);
                             GameObject enemyPrefab = _currentWave.enemyPrefabs[randomIndex];
-                            Vector3 spawnPos = _posGenerator.GenerateSpawnPos();
+                            Vector3 spawnPos = _posGenerator.GenerateSpawnPos(10);
                             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
                         }
                         _lastSpawnTime = Time.time;
@@ -110,6 +106,5 @@ public class WaveManager : MonoBehaviour
         Debug.Log(_currentWaveIndex);
         _currentWave = waves[_currentWaveIndex];
         _currentWaveIndex++;
-        
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -10,18 +8,21 @@ public class Meteor : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    private RandomPosGenerator _posGenerator = new RandomPosGenerator(4, 4);
+    private RandomPosGenerator _posGenerator;
     private bool _isAttackFinished = false;
     private float _attackCoolDown = 0.7f;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         transform.position = _posGenerator.Generate();
         _animator = GetComponent<Animator>();
+        var boundary = GeneralConstants.mapBoundaries;
+        _posGenerator = new RandomPosGenerator(boundary, 4, 4);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _cooldown -= Time.deltaTime;
         if (_cooldown <= 0f)
@@ -36,7 +37,7 @@ public class Meteor : MonoBehaviour
     private void Attack()
     {
         _attackCoolDown -= Time.deltaTime;
-        if(_attackCoolDown <= 0f)
+        if (_attackCoolDown <= 0f)
         {
             var colliderSize = GetComponent<Collider2D>().bounds.size;
             Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);
