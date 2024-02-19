@@ -3,20 +3,24 @@ using UnityEngine;
 
 public class RandomEnvEffect : MonoBehaviour
 {
-    protected RandomEnvEffectProperties properties;
+    public RandomEnvEffectProperties properties;
     protected Animator animator;
     protected bool isAttackFinished = false;
+    private float _cooldown;
+    private float _attackCooldown;
 
-    public RandomEnvEffect()
+    private void Start()
     {
-        properties = new RandomEnvEffectProperties();
         animator = GetComponent<Animator>();
+        transform.position = properties.posGenerator.Generate();
+        _cooldown = properties.cooldown;
+        _attackCooldown = properties.attackCooldown;
     }
 
     protected void HandleAttack()
     {
-        properties.cooldown -= Time.deltaTime;
-        if (properties.cooldown <= 0f)
+        _cooldown -= Time.deltaTime;
+        if (_cooldown <= 0f)
         {
             animator.SetTrigger(TriggerConstants.AttackTrigger);
             if (!isAttackFinished)
@@ -27,8 +31,8 @@ public class RandomEnvEffect : MonoBehaviour
 
     private void Attack()
     {
-        properties.attackCooldown -= Time.deltaTime;
-        if (properties.attackCooldown <= 0f)
+        _attackCooldown -= Time.deltaTime;
+        if (_attackCooldown <= 0f)
         {
             var colliderSize = GetComponent<Collider2D>().bounds.size;
             Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, colliderSize, 0f);

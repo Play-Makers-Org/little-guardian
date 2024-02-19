@@ -137,10 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0285e2a7e134a7640ab34738ed9609f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightningAnim: {fileID: 0}
-  _cooldown: 1
-  _damage: 1
-  _lightningSO: {fileID: 11400000, guid: 4e35303086618544397c6818ed938664, type: 2}
+  properties: {fileID: 11400000, guid: c3ee26e1c7afbf04c9cff10cd662303f, type: 2}
 --- !u!95 &-5612401279491317387
 Animator:
   serializedVersion: 7

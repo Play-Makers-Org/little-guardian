@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectRandomizer : MonoBehaviour
@@ -8,6 +6,7 @@ public class EffectRandomizer : MonoBehaviour
     private class Effect
     {
         public int minCount;
+
         public int maxCount;
 
         //public float effectTime;

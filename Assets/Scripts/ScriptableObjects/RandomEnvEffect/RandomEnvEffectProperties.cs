@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Random Env Effect", menuName = "ScriptableObjects/RandomEnvEffect")]
 public class RandomEnvEffectProperties : ScriptableObject
 {
     public float attackCooldown;
