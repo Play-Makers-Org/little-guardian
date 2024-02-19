@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour
 
     private float _lastSpawnTime;
 
-    private RandomPosGenerator _posGenerator = new RandomPosGenerator(GeneralConstants.mapBoundaries, 1, 1);
+    private RandomPosGenerator _posGenerator = new RandomPosGenerator();
 
     private bool isWavesFinished = false;
 

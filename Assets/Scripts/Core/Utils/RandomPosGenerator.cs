@@ -18,6 +18,20 @@ public class RandomPosGenerator
     private float _offsetY;
     private Boundary _boundary;
 
+    public RandomPosGenerator()
+    {
+        _offsetX = 1;
+        _offsetY = 1;
+        _boundary = GeneralConstants.mapBoundaries;
+    }
+
+    public RandomPosGenerator(float offsetX, float offSetY)
+    {
+        _offsetX = offsetX;
+        _offsetY = offSetY;
+        _boundary = GeneralConstants.mapBoundaries;
+    }
+
     public RandomPosGenerator(Boundary boundary, float offsetX, float offSetY)
     {
         _offsetX = offsetX;
