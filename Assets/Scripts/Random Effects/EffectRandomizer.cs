@@ -1,13 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-//public class RandomEffect
-//{
-//    public float minCount;
-//    public float maxCount;
-//    public GameObject effectPrefab;
-//}
 
 public class EffectRandomizer : MonoBehaviour
 {
@@ -15,7 +6,9 @@ public class EffectRandomizer : MonoBehaviour
     private class Effect
     {
         public int minCount;
+
         public int maxCount;
+
         //public float effectTime;
         public GameObject effectPrefab;
     }
@@ -24,17 +17,15 @@ public class EffectRandomizer : MonoBehaviour
     private Effect _currentEffect;
 
     public bool isRandomizerReady = false;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
-
         if (isRandomizerReady)
         {
             int effectIndex = Random.RandomRange(0, _effects.Length);
@@ -44,7 +35,7 @@ public class EffectRandomizer : MonoBehaviour
             {
                 Instantiate(_currentEffect.effectPrefab);
             }
-            isRandomizerReady=false;
+            isRandomizerReady = false;
         }
     }
 }
