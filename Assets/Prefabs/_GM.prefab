@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5429116839300443566}
   - component: {fileID: 5429116839300443567}
+  - component: {fileID: 7843613268204703816}
+  - component: {fileID: 8983966509937889762}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -24,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429116839300443565}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.1685143, y: -0.24207842, z: -0.15753521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5429116839300443567
 MonoBehaviour:
@@ -64,3 +66,42 @@ MonoBehaviour:
     minSpawningEnemy: 2
     maxSpawningEnemy: 3
   _currentWaveWaitingTime: 0
+--- !u!114 &7843613268204703816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429116839300443565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bd6be16726afd4db9d83848d797ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _randomEvents:
+  - minCount: 2
+    maxCount: 4
+    timeBetweenNextEvent: 0.5
+    nextEventTime: 0
+    eventPrefab: {fileID: 470880473886856872, guid: eccdb9810a8faed4c8290e9f8e377898, type: 3}
+  - minCount: 1
+    maxCount: 3
+    timeBetweenNextEvent: 1
+    nextEventTime: 0
+    eventPrefab: {fileID: 2205399614246319546, guid: b74fde7d12438fd43af7629af29177e3, type: 3}
+  _eventCooldown: 0
+--- !u!114 &8983966509937889762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429116839300443565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6912323b6fe3b8248b2ae9c223bb5e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomEvents:
+  - {fileID: 470880473886856872, guid: eccdb9810a8faed4c8290e9f8e377898, type: 3}
+  - {fileID: 2205399614246319546, guid: b74fde7d12438fd43af7629af29177e3, type: 3}
