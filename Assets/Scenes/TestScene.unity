@@ -300,14 +300,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _GM
       objectReference: {fileID: 0}
-    - target: {fileID: 5429116839300443565, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429116839300443566, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5429116839300443566, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.1685143
