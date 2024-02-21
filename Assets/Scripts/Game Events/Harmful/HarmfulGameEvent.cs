@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class RandomEnvEffect : MonoBehaviour
+public class HarmfulGameEvent : MonoBehaviour
 {
-    public RandomEnvEffectProperties properties;
+    public HarmfulGameEventProperties properties;
     protected Animator animator;
     protected bool isAttackFinished = false;
     private float _cooldown;

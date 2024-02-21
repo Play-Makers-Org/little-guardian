@@ -1,4 +1,4 @@
-public class Meteor : RandomEnvEffect
+public class Lightning : HarmfulGameEvent
 {
     private void Update()
     {

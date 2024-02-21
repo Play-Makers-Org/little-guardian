@@ -89,7 +89,8 @@ MonoBehaviour:
     timeBetweenNextEvent: 1
     nextEventTime: 0
     eventPrefab: {fileID: 2205399614246319546, guid: b74fde7d12438fd43af7629af29177e3, type: 3}
-  _eventCooldown: 0
+  _timeBetweenEvents: 5
+  _eventLength: 5
 --- !u!114 &8983966509937889762
 MonoBehaviour:
   m_ObjectHideFlags: 0

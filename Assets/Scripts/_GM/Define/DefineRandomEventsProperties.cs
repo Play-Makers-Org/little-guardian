@@ -8,24 +8,24 @@ public class DefineRandomEventsProperties : MonoBehaviour
     {
         foreach (var randomEvent in randomEvents)
         {
-            RandomEnvEffectProperties properties;
+            HarmfulGameEventProperties properties;
             if (randomEvent.GetComponent<Lightning>() != null)
             {
                 properties = randomEvent.GetComponent<Lightning>().properties;
-                properties.attackCooldown = RandomEnvEffectConstants.lightningAttackCooldown;
-                properties.cooldown = RandomEnvEffectConstants.lightningCooldown;
-                properties.damage = RandomEnvEffectConstants.lightningDamage;
-                properties.objectDestructionTime = RandomEnvEffectConstants.lightningObjectDestructionTime;
-                properties.posGenerator = RandomEnvEffectConstants.lightningPosGenerator;
+                properties.attackCooldown = HarmfulGameEventConstants.lightningAttackCooldown;
+                properties.cooldown = HarmfulGameEventConstants.lightningCooldown;
+                properties.damage = HarmfulGameEventConstants.lightningDamage;
+                properties.objectDestructionTime = HarmfulGameEventConstants.lightningObjectDestructionTime;
+                properties.posGenerator = HarmfulGameEventConstants.lightningPosGenerator;
             }
             else if (randomEvent.GetComponent<Meteor>() != null)
             {
                 properties = randomEvent.GetComponent<Meteor>().properties;
-                properties.attackCooldown = RandomEnvEffectConstants.meteorAttackCooldown;
-                properties.cooldown = RandomEnvEffectConstants.meteorCooldown;
-                properties.damage = RandomEnvEffectConstants.meteorDamage;
-                properties.objectDestructionTime = RandomEnvEffectConstants.meteorObjectDestuctionTime;
-                properties.posGenerator = RandomEnvEffectConstants.meteorPosGenerator;
+                properties.attackCooldown = HarmfulGameEventConstants.meteorAttackCooldown;
+                properties.cooldown = HarmfulGameEventConstants.meteorCooldown;
+                properties.damage = HarmfulGameEventConstants.meteorDamage;
+                properties.objectDestructionTime = HarmfulGameEventConstants.meteorObjectDestuctionTime;
+                properties.posGenerator = HarmfulGameEventConstants.meteorPosGenerator;
             }
         }
     }

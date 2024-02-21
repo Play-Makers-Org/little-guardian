@@ -24,9 +24,9 @@ public class RandomEventManager : MonoBehaviour
 
     private EventManagerStatus _managerStatus;
 
-    private float _timeBetweenEvents = 5f;
-    public float _eventCooldown;
-    private float _eventLength = 5f;
+    public float _timeBetweenEvents = 5f;
+    private float _eventCooldown;
+    public float _eventLength = 5f;
     private float _eventEndingTime;
 
     private void Start()

@@ -1,4 +1,4 @@
-﻿public static class RandomEnvEffectConstants
+﻿public static class HarmfulGameEventConstants
 {
     public static readonly float attackCooldown = 0f;
     public static readonly float cooldown = 1f;
