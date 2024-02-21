@@ -2,18 +2,8 @@
 
 public class RandomEventManager : MonoBehaviour
 {
-    [System.Serializable]
-    private class RandomEvent
-    {
-        public int minCount;
-        public int maxCount;
-        public float timeBetweenNextEvent;
-        public float nextEventTime;
-        public GameObject eventPrefab;
-    }
-
-    [SerializeField] private RandomEvent[] _randomEvents;
-    private RandomEvent _currentEvent;
+    [SerializeField] private RandomizedHarmfulGameEvent[] _randomEvents;
+    private RandomizedHarmfulGameEvent _currentEvent;
 
     private enum EventManagerStatus
     {
@@ -28,6 +18,14 @@ public class RandomEventManager : MonoBehaviour
     private float _eventCooldown;
     public float _eventLength = 5f;
     private float _eventEndingTime;
+
+    private void Awake()
+    {
+        foreach (var randomEvent in _randomEvents)
+        {
+            randomEvent.nextEventTime = 0f;
+        }
+    }
 
     private void Start()
     {

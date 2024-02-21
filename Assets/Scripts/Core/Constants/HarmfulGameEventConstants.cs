@@ -17,4 +17,27 @@
     public static readonly float meteorDamage = damage + 1f;
     public static readonly float meteorObjectDestuctionTime = objectDestructionTime;
     public static readonly RandomPosGenerator meteorPosGenerator = new RandomPosGenerator(4, 4);
+
+    public static HarmfulGameEventProperties GetEventProperties(HarmfulGameEvent gameEvent)
+    {
+        var properties = gameEvent.properties;
+        if (gameEvent is Lightning)
+        {
+            properties.attackCooldown = HarmfulGameEventConstants.lightningAttackCooldown;
+            properties.cooldown = HarmfulGameEventConstants.lightningCooldown;
+            properties.damage = HarmfulGameEventConstants.lightningDamage;
+            properties.objectDestructionTime = HarmfulGameEventConstants.lightningObjectDestructionTime;
+            properties.posGenerator = HarmfulGameEventConstants.lightningPosGenerator;
+        }
+        else if (gameEvent is Meteor)
+        {
+            properties.attackCooldown = HarmfulGameEventConstants.meteorAttackCooldown;
+            properties.cooldown = HarmfulGameEventConstants.meteorCooldown;
+            properties.damage = HarmfulGameEventConstants.meteorDamage;
+            properties.objectDestructionTime = HarmfulGameEventConstants.meteorObjectDestuctionTime;
+            properties.posGenerator = HarmfulGameEventConstants.meteorPosGenerator;
+        }
+
+        return properties;
+    }
 }
