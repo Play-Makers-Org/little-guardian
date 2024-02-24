@@ -16,7 +16,7 @@ _shadow=new GameObject ("Shadow");
 _shadow.transform.parent = transform;
 
 _shadow.transform.localPosition = Offset;
-_shadow.transform.localRotation = Quaternion.identity
+_shadow.transform.localRotation = Quaternion.identity;
 
 SpriteRenderer renderer = GetComponent <SpriteRenderer> ();
 SpriteRenderer sr = _shadow.AddComponent <SpriteRenderer> ();
