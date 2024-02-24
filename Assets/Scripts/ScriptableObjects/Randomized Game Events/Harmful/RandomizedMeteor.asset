@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c7c61cb9d86a548a30661f27964c46, type: 3}
+  m_Name: RandomizedMeteor
+  m_EditorClassIdentifier: 
+  minCount: 1
+  maxCount: 3
+  timeBetweenNextEvent: 1
+  nextEventTime: 1
+  eventPrefab: {fileID: 2205399614246319546, guid: b74fde7d12438fd43af7629af29177e3, type: 3}
