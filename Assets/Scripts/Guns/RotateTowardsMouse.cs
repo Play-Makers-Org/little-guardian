@@ -5,6 +5,13 @@ public class RotateTowardsMouse : MonoBehaviour
     public bool isFlip = false;
     private float angleOffset = 4f;
 
+    public Transform _healthBarTransform;
+
+    private void Start()
+    {
+        _healthBarTransform = GameObject.Find(GameObjectNameConstants.healthBar).transform;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -17,11 +24,13 @@ public class RotateTowardsMouse : MonoBehaviour
         {
             angle -= angleOffset;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            _healthBarTransform.rotation = Quaternion.Euler(new Vector3());
         }
         else
         {
             angle += angleOffset;
             transform.rotation = Quaternion.Euler(180f, 0f, angle * -1);
+            _healthBarTransform.rotation = Quaternion.Euler(new Vector3(180f, 0f));
         }
     }
 
