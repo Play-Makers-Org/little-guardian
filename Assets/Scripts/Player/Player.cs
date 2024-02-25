@@ -1,32 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 10f;
-    [SerializeField] private float health;
-    // Start is called before the first frame update
-    void Start()
-    {
-        health = maxHealth;
-    }
+    public PlayerProperties props;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        var healthBar = transform.Find(GameObjectNameConstants.healthBar).gameObject;
+        props.SetHealthBar(healthBar);
     }
 
     public void GetDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        props.GetDamage(damage);
+        if (props.health <= 0)
             Die();
     }
 
     private void Die()
     {
         Destroy(gameObject);
+        Time.timeScale = 0;
     }
 }

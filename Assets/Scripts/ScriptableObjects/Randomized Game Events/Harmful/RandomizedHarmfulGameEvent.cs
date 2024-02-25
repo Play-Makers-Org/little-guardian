@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewRandomizedGameEvent", menuName = "ScriptableObjects/RandomizedHarmfulGameEvent")]
+[CreateAssetMenu(fileName = "NewRandomizedGameEvent", menuName = "ScriptableObject/RandomizedHarmfulGameEvent")]
 public class RandomizedHarmfulGameEvent : ScriptableObject
 {
     public int minCount;
