@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: PlayerProperteis
   m_EditorClassIdentifier: 
   maxHealth: 10
-  health: 10
-  healthBarPrefab: {fileID: 4834346534082861056, guid: 25a111e9acbebcc4bae231dab02ffd67, type: 3}
+  health: 5
   healthBar: {fileID: 0}

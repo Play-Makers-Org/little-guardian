@@ -7,6 +7,12 @@ public class PlayerProperties : ScriptableObject
     public float health;
     public GameObject healthBar;
 
+    private void OnEnable()
+    {
+        maxHealth = PlayerConstants.maxHealth;
+        health = maxHealth;
+    }
+
     public void GetDamage(float damage)
     {
         health -= damage;
@@ -16,14 +22,13 @@ public class PlayerProperties : ScriptableObject
     public void SetHealthBar(GameObject obj)
     {
         healthBar = obj;
-        var healthBarPos = new Vector3(-0.15f, 0.75f);
-        healthBar.transform.localPosition = healthBarPos;
+        healthBar.transform.localPosition = PlayerConstants.heathBarPos;
     }
 
     public void SetHealthBarValue()
     {
         var healthPercent = health / maxHealth;
-        var bar = healthBar.transform.Find("Bar").gameObject;
+        var bar = healthBar.transform.Find(GameObjectNameConstants.bar).gameObject;
         bar.transform.localScale = new Vector3(healthPercent, 1);
     }
 }
