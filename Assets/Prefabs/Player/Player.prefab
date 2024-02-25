@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7092f6bf812aef49aafda154e98f570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Offset: {x: -0.1, y: -0.1, z: 0}
+  Offset: {x: -0.1, y: -0.1, z: 1}
   Material: {fileID: 2100000, guid: 4717d8e9c6d11594ab91840f5bb3204f, type: 2}
 --- !u!1 &3984859555215034534
 GameObject:
@@ -308,7 +308,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e88ea78ca8863324c97816ae707c77ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

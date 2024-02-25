@@ -103,7 +103,6 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        Debug.Log(_currentWaveIndex);
         _currentWave = waves[_currentWaveIndex];
         _currentWaveIndex++;
     }

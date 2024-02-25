@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewGameEventProperty", menuName = "ScriptableObjects/HarmfulGameEventProperty")]
+[CreateAssetMenu(fileName = "NewGameEventProperty", menuName = "ScriptableObject/HarmfulGameEventProperty")]
 public class HarmfulGameEventProperties : ScriptableObject
 {
     public float attackCooldown;
