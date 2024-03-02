@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44357dbc8fd302a4d80098f7ef4159c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementProperties: {fileID: 11400000, guid: 770bddd495f76e044b3471c49edb1c70, type: 2}
 --- !u!212 &705185967847367994
 SpriteRenderer:
   m_ObjectHideFlags: 0
