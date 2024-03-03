@@ -2,23 +2,17 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    protected EnemyEnums.EnemyMovementTypes movementType = EnemyEnums.EnemyMovementTypes.MOVE_TOWARDS_PLAYER;
-    protected float moveSpeed;
     protected EnemyMovementHelper movementHelper;
-
-    public EnemyMovement()
-    {
-        moveSpeed = EnemyConstants.enemyMoveSpeed;
-    }
+    public EnemyMovementProperties movementProperties;
 
     protected void Awake()
     {
-        movementHelper = new EnemyMovementHelper(this.gameObject, moveSpeed);
+        movementHelper = new EnemyMovementHelper(gameObject);
     }
 
     protected void Move()
     {
-        switch (movementType)
+        switch (movementProperties.movementType)
         {
             case EnemyEnums.EnemyMovementTypes.MOVE_TOWARDS_PLAYER:
                 movementHelper.MoveTowardsPlayer();

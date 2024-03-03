@@ -3,15 +3,15 @@
 public class EnemyProjectile : MonoBehaviour
 {
     private Vector3 _playerPosition;
-    protected float projectileSpeed = EnemyConstants.enemyProjectileSpeed;
-    protected float projectileDamage = EnemyConstants.enemyProjectileDamage;
+    public float projectileSpeed;
+    public float projectileDamage;
 
     private void Start()
     {
         _playerPosition = GameObject.FindGameObjectWithTag(TagConstants.PlayerTag).transform.position;
     }
 
-    private void Update()
+    protected void MoveTowardsPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, _playerPosition, projectileSpeed * Time.deltaTime);
 

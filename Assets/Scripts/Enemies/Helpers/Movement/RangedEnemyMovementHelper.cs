@@ -4,24 +4,21 @@ public class RangedEnemyMovementHelper
 {
     private static readonly Transform _player = GameObject.FindGameObjectWithTag(TagConstants.PlayerTag).transform;
     private GameObject _obj;
-    private float _moveSpeed;
-    private float _distance;
-    private float _retreatDistance;
 
-    public RangedEnemyMovementHelper(GameObject obj, float moveSpeed, float distance, float retreatDistance)
+    public RangedEnemyMovementHelper(GameObject obj)
     {
-        _moveSpeed = moveSpeed;
         _obj = obj;
-        _distance = distance;
-        _retreatDistance = retreatDistance;
     }
 
     public void MoveTowardsPlayerAndStop()
     {
+        var movementProperties = GetMovementProperties();
+        var distance = movementProperties.distance;
+        var moveSpeed = movementProperties.moveSpeed;
         var playerDistance = Vector2.Distance(_player.transform.position, _obj.transform.position);
-        if (playerDistance > _distance)
+        if (playerDistance > distance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING);
+            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING, moveSpeed);
         }
         else
         {
@@ -31,15 +28,19 @@ public class RangedEnemyMovementHelper
 
     public void MoveTowardsPlayerAndRetreat()
     {
+        var movementProperties = GetMovementProperties();
+        var distance = movementProperties.distance;
+        var retreatDistance = movementProperties.retreatDistance;
+        var moveSpeed = movementProperties.moveSpeed;
         var playerDistance = Vector2.Distance(_player.transform.position, _obj.transform.position);
 
-        if (playerDistance > _distance)
+        if (playerDistance > distance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING);
+            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING, moveSpeed);
         }
-        else if (playerDistance < _retreatDistance)
+        else if (playerDistance < retreatDistance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.RETREATING);
+            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.RETREATING, moveSpeed);
         }
         else
         {
@@ -47,18 +48,18 @@ public class RangedEnemyMovementHelper
         }
     }
 
-    private void MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus movementStatus)
+    private void MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus movementStatus, float moveSpeed)
     {
         ChangeMovementStatus(movementStatus);
         var retreatMultiplier = -1;
         switch (movementStatus)
         {
             case EnemyEnums.EnemyMovementStatus.MOVING:
-                _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, _moveSpeed * Time.deltaTime);
+                _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, moveSpeed * Time.deltaTime);
                 break;
 
             case EnemyEnums.EnemyMovementStatus.RETREATING:
-                _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, _moveSpeed * Time.deltaTime * retreatMultiplier);
+                _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, moveSpeed * Time.deltaTime * retreatMultiplier);
                 break;
         }
     }
@@ -66,5 +67,10 @@ public class RangedEnemyMovementHelper
     private void ChangeMovementStatus(EnemyEnums.EnemyMovementStatus movementStatus)
     {
         _obj.GetComponent<RangedEnemyMovement>().movementStatus = movementStatus;
+    }
+
+    private RangedEnemyMovementProperties GetMovementProperties()
+    {
+        return _obj.GetComponent<RangedEnemyMovement>().properties;
     }
 }

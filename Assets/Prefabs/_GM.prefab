@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5429116839300443567}
   - component: {fileID: 7843613268204703816}
   - component: {fileID: 8983966509937889762}
+  - component: {fileID: 7737013075286375547}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -101,3 +102,19 @@ MonoBehaviour:
   randomizedHarmfulGameEvents:
   - {fileID: 11400000, guid: 482a975dc6c374d428d4f18efa144228, type: 2}
   - {fileID: 11400000, guid: 033d93c0082e9d34e9b0a8468ba65bb3, type: 2}
+--- !u!114 &7737013075286375547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429116839300443565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c6a60dae4f08343bef5d598fa769be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+  rangedEnemies:
+  - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}

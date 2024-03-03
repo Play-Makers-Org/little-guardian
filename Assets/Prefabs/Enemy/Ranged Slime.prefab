@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementStatus: 1
+  properties: {fileID: 11400000, guid: 85900b82bc41e3f439891af5801765d0, type: 2}
 --- !u!114 &2145416961738642545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95127c1e0f6bb6345b8bd0e8084a3a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5986127914310692791, guid: 6dcc853c95a53214482e1d5e8bae4e63, type: 3}
+  properties: {fileID: 11400000, guid: d69efbd007028b3479b713bee903d3b5, type: 2}
 --- !u!50 &2145416961738642557
 Rigidbody2D:
   serializedVersion: 4
