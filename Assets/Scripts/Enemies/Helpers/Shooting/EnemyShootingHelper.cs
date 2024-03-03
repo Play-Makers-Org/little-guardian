@@ -3,13 +3,11 @@ using UnityEngine;
 public class EnemyShootingHelper : MonoBehaviour
 {
     private readonly GameObject _obj;
-    private readonly float _timeBetweenShots;
     private float _nextShootingTime;
 
-    public EnemyShootingHelper(GameObject obj, float timeBetweenShots)
+    public EnemyShootingHelper(GameObject obj)
     {
         _obj = obj;
-        _timeBetweenShots = timeBetweenShots;
     }
 
     public void ShootWhenStopped()
@@ -26,9 +24,21 @@ public class EnemyShootingHelper : MonoBehaviour
     {
         if (Time.time > _nextShootingTime)
         {
-            var projectile = _obj.GetComponent<EnemyShooting>().projectile;
+            var shootingProperties = GetShootingProperties();
+            var projectile = shootingProperties.projectile;
+            var timeBetweenShots = shootingProperties.timeBetweenShots;
+
+            var projectileComponent = projectile.GetComponent<EnemyProjectile>();
+            projectileComponent.projectileDamage = shootingProperties.projectileDamage;
+            projectileComponent.projectileSpeed = shootingProperties.projectileSpeed;
             Instantiate(projectile, _obj.transform.position, Quaternion.identity);
-            _nextShootingTime = Time.time + _timeBetweenShots;
+
+            _nextShootingTime = Time.time + timeBetweenShots;
         }
+    }
+
+    private RangedEnemyShootingProperties GetShootingProperties()
+    {
+        return _obj.GetComponent<EnemyShooting>().properties;
     }
 }

@@ -2,19 +2,17 @@
 
 public class EnemyShooting : MonoBehaviour
 {
-    protected EnemyEnums.EnemyShootingType shootingType = EnemyEnums.EnemyShootingType.SHOOT_WHEN_STOPPED;
-    protected float timeBetweenShots = EnemyConstants.enemyTimeBetweenShots;
-    public GameObject projectile;
     private EnemyShootingHelper _shootingHelper;
+    public RangedEnemyShootingProperties properties;
 
     private void Awake()
     {
-        _shootingHelper = new EnemyShootingHelper(this.gameObject, timeBetweenShots);
+        _shootingHelper = new EnemyShootingHelper(this.gameObject);
     }
 
     protected void Shoot()
     {
-        switch (shootingType)
+        switch (properties.shootingType)
         {
             case EnemyEnums.EnemyShootingType.SHOOT_WHEN_STOPPED:
                 _shootingHelper.ShootWhenStopped();

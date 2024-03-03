@@ -17,6 +17,9 @@ public class DefineEnemyProperties : MonoBehaviour
         {
             var movement = rangedEnemy.GetComponent<RangedEnemyMovement>();
             movement.properties = RangedEnemyMovementConstants.GetProperties(movement);
+
+            var shooting = rangedEnemy.GetComponent<EnemyShooting>();
+            shooting.properties = RangedEnemyShootingConstants.GetProperties(shooting);
         }
     }
 }

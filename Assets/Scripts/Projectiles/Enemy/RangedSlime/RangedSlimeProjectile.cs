@@ -2,7 +2,12 @@
 {
     public RangedSlimeProjectile()
     {
-        this.projectileDamage = EnemyConstants.rangedSlimeProjectileDamage;
-        this.projectileSpeed = EnemyConstants.rangedSlimeProjectileSpeed;
+        this.projectileDamage = RangedEnemyShootingConstants.rangedSlimeProjectileDamage;
+        this.projectileSpeed = RangedEnemyShootingConstants.rangedSlimeProjectileSpeed;
+    }
+
+    private void Update()
+    {
+        this.MoveTowardsPlayer();
     }
 }
