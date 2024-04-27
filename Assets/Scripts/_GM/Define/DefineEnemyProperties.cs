@@ -11,6 +11,9 @@ public class DefineEnemyProperties : MonoBehaviour
         {
             var movement = enemy.GetComponent<EnemyMovement>();
             movement.movementProperties = EnemyMovementConstants.GetProperties(movement);
+
+            var general = enemy.GetComponent<Enemy>();
+            general.properties.maxHealth = 4f;
         }
 
         foreach (var rangedEnemy in rangedEnemies)
