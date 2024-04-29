@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void GetDamage(float damage)
     {
+        Debug.Log("Getting Damage ! , Health : " + health);
         health -= damage;
         if (health <= 0)
             Die();
