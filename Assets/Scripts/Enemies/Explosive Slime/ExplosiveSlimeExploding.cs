@@ -2,25 +2,16 @@
 
 public class ExplosiveSlimeExploding : MonoBehaviour
 {
-    private enum ExplosiveEnemyExplodingStatus
-    {
-        NORMAL,
-        EXPLODING
-    }
-
-    private float explosionDamage = 2f;
-    private float explosionRange = 2f;
-    private float explosionForce = 500f;
-    private float waitingTimeBeforeExplosion = 0.5f;
+    public ExplosiveEnemyExplodingSO explodingProperties;
     private float explosionTime;
 
-    private ExplosiveEnemyExplodingStatus explodingStatus;
+    private ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
 
     private void Start()
     {
         var explosionCircle = transform.Find(GameObjectNameConstants.explosionCircle).transform;
 
-        var circleSize = explosionRange * 2 * (Mathf.Pow(transform.localScale.x, -1));
+        var circleSize = explodingProperties.explosionRange * 2 * (Mathf.Pow(transform.localScale.x, -1));
 
         explosionCircle.localScale = new Vector3(circleSize, circleSize);
     }
@@ -29,7 +20,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
     {
         if (IsPlayerInDistance() & explodingStatus == ExplosiveEnemyExplodingStatus.NORMAL)
         {
-            explosionTime = Time.time + waitingTimeBeforeExplosion;
+            explosionTime = Time.time + explodingProperties.waitingTimeBeforeExplosion;
             explodingStatus = ExplosiveEnemyExplodingStatus.EXPLODING;
         }
 
@@ -41,7 +32,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
 
     public void Explode()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodingProperties.explosionRange);
 
         foreach (Collider2D nearbyObject in colliders)
         {
@@ -52,16 +43,16 @@ public class ExplosiveSlimeExploding : MonoBehaviour
                 if (rb.GetComponent<Player>() != null)
                 {
                     var player = rb.GetComponent<Player>();
-                    player.GetDamage(explosionDamage);
+                    player.GetDamage(explodingProperties.explosionDamage);
                 }
-                else if (rb.GetComponent<Enemy>() != null)
+                else if (rb.GetComponent<Enemy>() != null && rb.gameObject != this.gameObject)
                 {
                     var enemy = rb.GetComponent<Enemy>();
-                    enemy.GetDamage(explosionDamage);
+                    enemy.GetDamage(explodingProperties.explosionDamage);
                 }
 
                 Vector2 direction = (rb.transform.position - transform.position).normalized;
-                rb.AddForce(direction * explosionForce);
+                rb.AddForce(direction * explodingProperties.explosionForce);
             }
         }
 

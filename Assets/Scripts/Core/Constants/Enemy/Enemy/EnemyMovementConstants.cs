@@ -1,9 +1,9 @@
 ﻿public static class EnemyMovementConstants
 {
     public static readonly float moveSpeed = 3f;
-    public static readonly EnemyEnums.EnemyMovementTypes movementType = EnemyEnums.EnemyMovementTypes.MOVE_TOWARDS_PLAYER;
+    public static readonly EnemyMovementTypes movementType = EnemyMovementTypes.MOVE_TOWARDS_PLAYER;
 
-    public static readonly EnemyEnums.EnemyMovementTypes slimeMovementType = EnemyEnums.EnemyMovementTypes.MOVE_TOWARDS_PLAYER;
+    public static readonly EnemyMovementTypes slimeMovementType = EnemyMovementTypes.MOVE_TOWARDS_PLAYER;
     public static readonly float slimeMoveSpeed = moveSpeed;
 
     public static EnemyMovementProperties GetProperties(EnemyMovement movement)

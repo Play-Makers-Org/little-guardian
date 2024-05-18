@@ -14,7 +14,7 @@ public class EnemyShooting : MonoBehaviour
     {
         switch (properties.shootingType)
         {
-            case EnemyEnums.EnemyShootingType.SHOOT_WHEN_STOPPED:
+            case EnemyShootingType.SHOOT_WHEN_STOPPED:
                 _shootingHelper.ShootWhenStopped();
                 break;
         }

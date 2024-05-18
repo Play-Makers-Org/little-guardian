@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     {
         switch (movementProperties.movementType)
         {
-            case EnemyEnums.EnemyMovementTypes.MOVE_TOWARDS_PLAYER:
+            case EnemyMovementTypes.MOVE_TOWARDS_PLAYER:
                 movementHelper.MoveTowardsPlayer();
                 break;
         }

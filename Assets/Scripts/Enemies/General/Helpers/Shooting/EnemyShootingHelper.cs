@@ -14,7 +14,7 @@ public class EnemyShootingHelper : MonoBehaviour
     {
         var enemyMovement = _obj.GetComponent<RangedEnemyMovement>();
         var movementStatus = enemyMovement.movementStatus;
-        if (movementStatus == EnemyEnums.EnemyMovementStatus.STOPPED)
+        if (movementStatus == EnemyMovementStatus.STOPPED)
         {
             Shoot();
         }

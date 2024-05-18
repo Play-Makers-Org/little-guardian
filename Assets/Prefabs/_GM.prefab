@@ -118,3 +118,5 @@ MonoBehaviour:
   - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
   rangedEnemies:
   - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
+  explosiveEnemies:
+  - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}

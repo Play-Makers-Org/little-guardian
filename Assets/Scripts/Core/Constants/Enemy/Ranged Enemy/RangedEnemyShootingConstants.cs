@@ -2,12 +2,12 @@
 {
     public static readonly float projectileDamage = 1f;
     public static readonly float projectileSpeed = 5f;
-    public static readonly EnemyEnums.EnemyShootingType shootingType = EnemyEnums.EnemyShootingType.SHOOT_WHEN_STOPPED;
+    public static readonly EnemyShootingType shootingType = EnemyShootingType.SHOOT_WHEN_STOPPED;
     public static readonly float timeBetweenShots = 2f;
 
     public static readonly float rangedSlimeProjectileDamage = projectileDamage;
     public static readonly float rangedSlimeProjectileSpeed = projectileSpeed;
-    public static readonly EnemyEnums.EnemyShootingType rangedSlimeShootingType = EnemyEnums.EnemyShootingType.SHOOT_WHEN_STOPPED;
+    public static readonly EnemyShootingType rangedSlimeShootingType = EnemyShootingType.SHOOT_WHEN_STOPPED;
     public static readonly float rangedSlimeTimeBetweenShots = timeBetweenShots;
 
     public static RangedEnemyShootingProperties GetProperties(EnemyShooting enemyShooting)

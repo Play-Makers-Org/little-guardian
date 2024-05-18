@@ -4,7 +4,7 @@
 public class EnemyMovementProperties : ScriptableObject
 {
     public float moveSpeed;
-    public EnemyEnums.EnemyMovementTypes movementType;
+    public EnemyMovementTypes movementType;
 
     private void OnEnable()
     {
