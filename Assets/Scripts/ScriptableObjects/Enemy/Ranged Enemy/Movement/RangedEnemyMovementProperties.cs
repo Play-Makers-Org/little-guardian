@@ -4,7 +4,7 @@ using UnityEngine;
 public class RangedEnemyMovementProperties : ScriptableObject
 {
     public float distance;
-    public EnemyEnums.RangedEnemyMovementType movementType;
+    public RangedEnemyMovementType movementType;
     public float moveSpeed;
     public float retreatDistance;
 

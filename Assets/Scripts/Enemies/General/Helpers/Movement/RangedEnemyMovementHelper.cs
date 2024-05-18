@@ -18,11 +18,11 @@ public class RangedEnemyMovementHelper
         var playerDistance = Vector2.Distance(_player.transform.position, _obj.transform.position);
         if (playerDistance > distance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING, moveSpeed);
+            MoveTowardsPlayer(EnemyMovementStatus.MOVING, moveSpeed);
         }
         else
         {
-            ChangeMovementStatus(EnemyEnums.EnemyMovementStatus.STOPPED);
+            ChangeMovementStatus(EnemyMovementStatus.STOPPED);
         }
     }
 
@@ -36,35 +36,35 @@ public class RangedEnemyMovementHelper
 
         if (playerDistance > distance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.MOVING, moveSpeed);
+            MoveTowardsPlayer(EnemyMovementStatus.MOVING, moveSpeed);
         }
         else if (playerDistance < retreatDistance)
         {
-            MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus.RETREATING, moveSpeed);
+            MoveTowardsPlayer(EnemyMovementStatus.RETREATING, moveSpeed);
         }
         else
         {
-            ChangeMovementStatus(EnemyEnums.EnemyMovementStatus.STOPPED);
+            ChangeMovementStatus(EnemyMovementStatus.STOPPED);
         }
     }
 
-    private void MoveTowardsPlayer(EnemyEnums.EnemyMovementStatus movementStatus, float moveSpeed)
+    private void MoveTowardsPlayer(EnemyMovementStatus movementStatus, float moveSpeed)
     {
         ChangeMovementStatus(movementStatus);
         var retreatMultiplier = -1;
         switch (movementStatus)
         {
-            case EnemyEnums.EnemyMovementStatus.MOVING:
+            case EnemyMovementStatus.MOVING:
                 _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, moveSpeed * Time.deltaTime);
                 break;
 
-            case EnemyEnums.EnemyMovementStatus.RETREATING:
+            case EnemyMovementStatus.RETREATING:
                 _obj.transform.position = Vector2.MoveTowards(_obj.transform.position, _player.transform.position, moveSpeed * Time.deltaTime * retreatMultiplier);
                 break;
         }
     }
 
-    private void ChangeMovementStatus(EnemyEnums.EnemyMovementStatus movementStatus)
+    private void ChangeMovementStatus(EnemyMovementStatus movementStatus)
     {
         _obj.GetComponent<RangedEnemyMovement>().movementStatus = movementStatus;
     }

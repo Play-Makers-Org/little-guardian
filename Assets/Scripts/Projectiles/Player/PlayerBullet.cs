@@ -18,18 +18,18 @@ public class PlayerBullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var obj = collision.gameObject;
-        if (obj.CompareTag(TagConstants.EnemyTag))
+
+        var enemy = obj.GetComponents<MonoBehaviour>()
+                        .OfType<IEnemy>()
+                        .FirstOrDefault();
+
+        if (enemy != null)
         {
-            var enemy = obj.GetComponents<MonoBehaviour>()
-                            .OfType<IEnemy>()
-                            .FirstOrDefault();
-            if (enemy != null)
-            {
-                enemy.GetDamage(_damage);
-                var enemyRb = obj.GetComponent<Rigidbody2D>();
-                enemyRb.velocity = Vector2.zero;
-            }
+            enemy.GetDamage(_damage);
+            var enemyRb = obj.GetComponent<Rigidbody2D>();
+            enemyRb.velocity = Vector2.zero;
         }
+
         Destroy(gameObject);
     }
 }

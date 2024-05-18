@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3984859554811477885}
   - component: {fileID: 3984859554811477886}
   - component: {fileID: 3984859554811477887}
+  - component: {fileID: 2484493468008101015}
+  - component: {fileID: 3984859554811477884}
   - component: {fileID: 3984859554811477880}
   - component: {fileID: 3984859554811477881}
-  - component: {fileID: 3984859554811477884}
-  - component: {fileID: 2484493468008101015}
   - component: {fileID: 8831363630938464586}
   m_Layer: 0
   m_Name: Player
@@ -121,57 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &3984859554811477880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984859554811477882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0482907897f15de48aa20eda99f7d742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  props: {fileID: 11400000, guid: c76d5c3bb26cb3f4cbb3c228a2cdb354, type: 2}
---- !u!114 &3984859554811477881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984859554811477882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef159a3cd16de91439149c0d59eb0b5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharacterSpeedx: 0
-  CharacterSpeedy: 0
-  isShocked: 0
-  isReverted: 0
---- !u!95 &3984859554811477884
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984859554811477882}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c736c69c72bb1a34dbf16b6fef90ad9b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &2484493468008101015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,6 +167,57 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.68, y: 1.2268094}
   m_EdgeRadius: 0
+--- !u!95 &3984859554811477884
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984859554811477882}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c736c69c72bb1a34dbf16b6fef90ad9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3984859554811477880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984859554811477882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0482907897f15de48aa20eda99f7d742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props: {fileID: 11400000, guid: c76d5c3bb26cb3f4cbb3c228a2cdb354, type: 2}
+--- !u!114 &3984859554811477881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984859554811477882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef159a3cd16de91439149c0d59eb0b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterSpeedx: 0
+  CharacterSpeedy: 0
+  isShocked: 0
+  isReverted: 0
 --- !u!114 &8831363630938464586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlip: 0
+  _healthBarTransform: {fileID: 0}
 --- !u!1 &3984859556015806007
 GameObject:
   m_ObjectHideFlags: 0

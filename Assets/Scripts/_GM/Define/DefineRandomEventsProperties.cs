@@ -9,7 +9,6 @@ public class DefineRandomEventsProperties : MonoBehaviour
     {
         foreach (var obj in randomEventObjects)
         {
-            HarmfulGameEventProperties properties;
             var harmfulEvent = obj.GetComponent<HarmfulGameEvent>();
             harmfulEvent.properties = HarmfulGameEventConstants.GetEventProperties(harmfulEvent);
         }

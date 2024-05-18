@@ -6,7 +6,7 @@ public class RangedEnemyShootingProperties : ScriptableObject
     public GameObject projectile;
     public float projectileDamage;
     public float projectileSpeed;
-    public EnemyEnums.EnemyShootingType shootingType;
+    public EnemyShootingType shootingType;
     public float timeBetweenShots;
 
     private void OnEnable()
