@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class DefineEnemyProperties : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
-    [SerializeField] private GameObject[] rangedEnemies;
-    [SerializeField] private GameObject[] explosiveEnemies;
+    public GameObject[] enemies;
+    public GameObject[] rangedEnemies;
+    public GameObject[] explosiveEnemies;
 
     private void Awake()
     {

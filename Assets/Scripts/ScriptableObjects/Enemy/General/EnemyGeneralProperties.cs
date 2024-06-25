@@ -14,4 +14,9 @@ public class EnemyGeneralProperties : ScriptableObject
         contactDamage = EnemyConstants.contactDamage;
         contactAttackCooldown = EnemyConstants.contactAttackCooldown;
     }
+
+    public void IncreaseHealth(float increaseNumber)
+    {
+        maxHealth += increaseNumber;
+    }
 }
