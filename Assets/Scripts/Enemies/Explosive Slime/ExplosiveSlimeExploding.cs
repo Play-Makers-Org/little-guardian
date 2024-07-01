@@ -5,7 +5,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
     public ExplosiveEnemyExplodingSO explodingProperties;
     private float explosionTime;
 
-    private ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
+    public ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
         {
             explosionTime = Time.time + explodingProperties.waitingTimeBeforeExplosion;
             explodingStatus = ExplosiveEnemyExplodingStatus.EXPLODING;
+            gameObject.GetComponent<Collider2D>().enabled = false;
         }
 
         if (explodingStatus == ExplosiveEnemyExplodingStatus.EXPLODING & Time.time >= explosionTime)

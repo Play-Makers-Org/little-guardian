@@ -659,105 +659,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5429116839300443567, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7843613268204703816, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5429116839300443565, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5429116839881567679}
-    - targetCorrespondingSourceObject: {fileID: 5429116839300443565, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5429116839881567678}
-    - targetCorrespondingSourceObject: {fileID: 5429116839300443565, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5429116839881567684}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
---- !u!1 &5429116839881567677 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5429116839300443565, guid: 96128b3b5979b2d4fb5b7cc9ce0c4fe5, type: 3}
-  m_PrefabInstance: {fileID: 5429116839881567676}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5429116839881567678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5429116839881567677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d42ce80b1d81214aba7e67d24680c34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - name: Minute 1
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    spawningRate: 1
-  - name: Minute 2
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    spawningRate: 1
-  - name: Minute 3
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
-    spawningRate: 0.8
-  - name: Minute 4
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
-    spawningRate: 0.8
-  - name: Minute 5
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
-    spawningRate: 0.5
-  gameTime: 0
-  currentWaveNumber: 0
---- !u!114 &5429116839881567679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5429116839881567677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c6a60dae4f08343bef5d598fa769be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-  rangedEnemies:
-  - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-  explosiveEnemies:
-  - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
---- !u!114 &5429116839881567684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5429116839881567677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 506ad7ec90576ea4e80f3105c3202576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

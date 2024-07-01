@@ -4,10 +4,8 @@ public class WaveManager : MonoBehaviour
 {
     private enum WaveStatus
     {
-        WAITING,
-        SPAWNING,
         CHANGING,
-        CHECKING,
+        SPAWNING,
     }
 
     [System.Serializable]
@@ -15,95 +13,88 @@ public class WaveManager : MonoBehaviour
     {
         public string name;
         public GameObject[] enemyPrefabs;
-        public float waitingTime;
         public float spawningRate;
-        public int enemyCount;
-        public int minSpawningEnemy;
-        public int maxSpawningEnemy;
     }
 
     [SerializeField] private Wave[] waves;
     private Wave _currentWave;
     private int _currentWaveIndex = 0;
-    [SerializeField] private float _currentWaveWaitingTime;
     private WaveStatus _currentWaveStatus;
-
     private float _lastSpawnTime;
 
     private RandomPosGenerator _posGenerator = new RandomPosGenerator();
 
-    private bool isWavesFinished = false;
+    public float gameTime;
+    private float _waveChangeTime = 60f;
+    private int _totalWaveCount = 5;
+    private float _gameFinishTime;
+    private bool _waveChangingLock = false;
+    public int currentWaveNumber = 0;
 
     private void Awake()
     {
         _currentWaveStatus = WaveStatus.CHANGING;
+        _totalWaveCount = waves.Length;
+        _gameFinishTime = _totalWaveCount * _waveChangeTime;
     }
 
     private void Update()
     {
-        if (_currentWaveStatus == WaveStatus.CHECKING)
+        gameTime += Time.deltaTime;
+
+        if (_currentWaveStatus == WaveStatus.CHANGING && !_waveChangingLock)
         {
-            var enemy = GameObject.FindGameObjectWithTag(TagConstants.EnemyTag);
-            if (enemy == null)
+            if (gameTime >= _gameFinishTime)
+            {
+                //TODO: END THE GAME
+                Time.timeScale = 0;
+            }
+
+            DefineCurrentWave();
+
+            if (currentWaveNumber != 1)
+            {
+                EnemyDifficultyManager.IncreaseAllEnemiesMaxHealth();
+            }
+        }
+
+        if (_currentWaveStatus == WaveStatus.SPAWNING)
+        {
+            if (gameTime - _lastSpawnTime >= _currentWave.spawningRate)
+            {
+                SpawnEnemy();
+            }
+
+            if (!_waveChangingLock && Mathf.RoundToInt(gameTime % _waveChangeTime) == 0)
             {
                 _currentWaveStatus = WaveStatus.CHANGING;
             }
-        }
-
-        if (_currentWaveStatus == WaveStatus.CHANGING && !isWavesFinished)
-        {
-            DefineCurrentWave();
-            _currentWaveStatus = WaveStatus.WAITING;
-            _currentWaveWaitingTime = _currentWave.waitingTime;
-        }
-
-        if (!isWavesFinished)
-        {
-            if (_currentWaveStatus == WaveStatus.WAITING)
+            else if (_waveChangingLock && Mathf.RoundToInt(gameTime % _waveChangeTime) == 1)
             {
-                _currentWaveWaitingTime -= Time.deltaTime;
-                if (_currentWaveWaitingTime <= 0)
-                    _currentWaveStatus = WaveStatus.SPAWNING;
+                _waveChangingLock = false;
             }
-
-            if (_currentWaveStatus == WaveStatus.SPAWNING)
-            {
-                if (_currentWave.enemyCount > 0)
-                {
-                    if (Time.time - _lastSpawnTime >= _currentWave.spawningRate)
-                    {
-                        var spawningEnemyCount = (int)Random.Range(_currentWave.minSpawningEnemy, _currentWave.maxSpawningEnemy + 1);
-                        for (int i = 0; i < spawningEnemyCount; i++)
-                        {
-                            int randomIndex = (int)Random.Range(0, _currentWave.enemyPrefabs.Length);
-                            GameObject enemyPrefab = _currentWave.enemyPrefabs[randomIndex];
-                            Vector3 spawnPos = _posGenerator.GenerateSpawnPos(10);
-                            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                        }
-                        _lastSpawnTime = Time.time;
-                        _currentWave.enemyCount -= spawningEnemyCount;
-                    }
-                }
-                else
-                    _currentWaveStatus = WaveStatus.CHECKING;
-            }
-        }
-        else
-        {
-            // ALL waves finished
-            Debug.Log("Waves finished ....");
         }
     }
 
     private void DefineCurrentWave()
     {
-        if (_currentWaveIndex == waves.Length)
-        {
-            isWavesFinished = true;
-            return;
-        }
-
         _currentWave = waves[_currentWaveIndex];
         _currentWaveIndex++;
+        currentWaveNumber++;
+        _waveChangingLock = true;
+        _currentWaveStatus = WaveStatus.SPAWNING;
+    }
+
+    private void SpawnEnemy()
+    {
+        int randomIndex = Random.Range(0, _currentWave.enemyPrefabs.Length);
+
+        GameObject enemyPrefab = _currentWave.enemyPrefabs[randomIndex];
+
+        Vector3 spawnPos = _posGenerator.GenerateSpawnPos(10);
+
+        Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+
+        _lastSpawnTime = gameTime;
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -18,7 +15,7 @@ public class GameTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var elapsedTime = _gm.GetComponent<NewWaveManager>().gameTime;
+        var elapsedTime = _gm.GetComponent<WaveManager>().gameTime;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
         _timerUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);

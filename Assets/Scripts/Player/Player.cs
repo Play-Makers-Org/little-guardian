@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage)
     {
+        Debug.Log("Getting Damage : " + damage);
         props.GetDamage(damage);
         if (props.health <= 0)
             Die();

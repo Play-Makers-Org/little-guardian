@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class ExplosiveSlime : Enemy
 {
     private ExplosiveSlimeExploding _exploding;
