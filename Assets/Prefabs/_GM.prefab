@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5429116839300443566}
-  - component: {fileID: 5429116839300443567}
   - component: {fileID: 7843613268204703816}
   - component: {fileID: 8983966509937889762}
-  - component: {fileID: 7737013075286375547}
+  - component: {fileID: 1278932312383358384}
+  - component: {fileID: 7504359234812378762}
+  - component: {fileID: 3876417820752610036}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -35,38 +36,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5429116839300443567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5429116839300443565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61cd7d19bbd6e54bba8bc286c83aa56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - name: 
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    waitingTime: 2
-    spawningRate: 2
-    enemyCount: 10
-    minSpawningEnemy: 1
-    maxSpawningEnemy: 2
-  - name: 
-    enemyPrefabs:
-    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
-    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
-    waitingTime: 2
-    spawningRate: 2
-    enemyCount: 15
-    minSpawningEnemy: 2
-    maxSpawningEnemy: 3
-  _currentWaveWaitingTime: 0
 --- !u!114 &7843613268204703816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +71,7 @@ MonoBehaviour:
   randomizedHarmfulGameEvents:
   - {fileID: 11400000, guid: 482a975dc6c374d428d4f18efa144228, type: 2}
   - {fileID: 11400000, guid: 033d93c0082e9d34e9b0a8468ba65bb3, type: 2}
---- !u!114 &7737013075286375547
+--- !u!114 &1278932312383358384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,3 +89,57 @@ MonoBehaviour:
   - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
   explosiveEnemies:
   - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
+--- !u!114 &7504359234812378762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429116839300443565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d42ce80b1d81214aba7e67d24680c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: Minute 1
+    enemyPrefabs:
+    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+    spawningRate: 1
+  - name: Minute 2
+    enemyPrefabs:
+    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
+    spawningRate: 1
+  - name: Minute 3
+    enemyPrefabs:
+    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
+    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
+    spawningRate: 0.8
+  - name: Minute 4
+    enemyPrefabs:
+    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
+    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
+    spawningRate: 0.8
+  - name: Minute 5
+    enemyPrefabs:
+    - {fileID: 1533572465582892818, guid: 56196c2e5a5ca6e4f9de521eb6168666, type: 3}
+    - {fileID: 2145416961738642550, guid: 86355b1072a86dc4eb135933f1f04e83, type: 3}
+    - {fileID: 1288271823961871665, guid: 0a790c81ecae9ab4fa2f12b1bc1d9b0e, type: 3}
+    spawningRate: 0.5
+  gameTime: 0
+  currentWaveNumber: 0
+--- !u!114 &3876417820752610036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429116839300443565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506ad7ec90576ea4e80f3105c3202576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

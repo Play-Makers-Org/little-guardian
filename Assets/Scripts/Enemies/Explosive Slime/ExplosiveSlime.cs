@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class ExplosiveSlime : Enemy
 {
     private ExplosiveSlimeExploding _exploding;
@@ -10,6 +12,14 @@ public class ExplosiveSlime : Enemy
 
     public ExplosiveSlime()
     {
+    }
+
+    public override void GetDamage(float damage)
+    {
+        if(_exploding.explodingStatus != ExplosiveEnemyExplodingStatus.EXPLODING)
+        {
+            base.GetDamage(damage);
+        }
     }
 
     protected override void Die()

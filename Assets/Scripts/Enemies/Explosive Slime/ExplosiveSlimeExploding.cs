@@ -5,7 +5,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
     public ExplosiveEnemyExplodingSO explodingProperties;
     private float explosionTime;
 
-    private ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
+    public ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
 
     private void Start()
     {
@@ -32,6 +32,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
 
     public void Explode()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodingProperties.explosionRange);
 
         foreach (Collider2D nearbyObject in colliders)
