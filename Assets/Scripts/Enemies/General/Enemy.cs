@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour, IEnemy
         }
     }
 
-    public void GetDamage(float damage)
+    public virtual void GetDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

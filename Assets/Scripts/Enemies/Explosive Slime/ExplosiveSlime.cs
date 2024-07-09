@@ -14,6 +14,14 @@ public class ExplosiveSlime : Enemy
     {
     }
 
+    public override void GetDamage(float damage)
+    {
+        if(_exploding.explodingStatus != ExplosiveEnemyExplodingStatus.EXPLODING)
+        {
+            base.GetDamage(damage);
+        }
+    }
+
     protected override void Die()
     {
         _exploding.Explode();

@@ -22,7 +22,6 @@ public class ExplosiveSlimeExploding : MonoBehaviour
         {
             explosionTime = Time.time + explodingProperties.waitingTimeBeforeExplosion;
             explodingStatus = ExplosiveEnemyExplodingStatus.EXPLODING;
-            gameObject.GetComponent<Collider2D>().enabled = false;
         }
 
         if (explodingStatus == ExplosiveEnemyExplodingStatus.EXPLODING & Time.time >= explosionTime)
@@ -33,6 +32,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
 
     public void Explode()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explodingProperties.explosionRange);
 
         foreach (Collider2D nearbyObject in colliders)
