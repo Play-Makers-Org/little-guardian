@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour, IEnemy
     protected float health;
     protected float lastContactAttackTime;
 
+    public PlayerXPManager xpManager;
+
     public Enemy()
     {
     }
@@ -13,6 +15,8 @@ public class Enemy : MonoBehaviour, IEnemy
     private void Start()
     {
         health = properties.maxHealth;
+        //xpManager = GameObject.Find(GameObjectNameConstants.bar).GetComponent<PlayerXPManager>();
+        xpManager = GameObject.FindGameObjectWithTag(TagConstants.PlayerTag).GetComponent<PlayerXPManager>();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -52,6 +56,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     protected virtual void Die()
     {
+        xpManager.GainXP(properties.xpGiven);
         Destroy(gameObject);
     }
 }

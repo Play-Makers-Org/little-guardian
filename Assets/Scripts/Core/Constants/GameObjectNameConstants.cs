@@ -4,4 +4,6 @@
     public static readonly string healthBar = "HealthBar";
 
     public static readonly string explosionCircle = "ExplosionCircle";
+
+    public static readonly string GM = "_GM";
 }
