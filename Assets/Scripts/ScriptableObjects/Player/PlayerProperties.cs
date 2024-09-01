@@ -3,14 +3,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPlayerProp", menuName = "ScriptableObject/PlayerProperty")]
 public class PlayerProperties : ScriptableObject
 {
-    public float maxHealth;
+    public float currentLevel;
+    public float currentXP;
+    public float neededXP;
+
     public float health;
     public GameObject healthBar;
+    public float maxHealth;
+    
 
     private void OnEnable()
     {
         maxHealth = PlayerConstants.maxHealth;
         health = maxHealth;
+        currentLevel = PlayerConstants.currentLevel;
+        currentXP = PlayerConstants.currentXP;
+        neededXP = PlayerConstants.neededXP;
     }
 
     public void GetDamage(float damage)

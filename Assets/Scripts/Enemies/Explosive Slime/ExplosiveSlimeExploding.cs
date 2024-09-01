@@ -7,6 +7,9 @@ public class ExplosiveSlimeExploding : MonoBehaviour
 
     public ExplosiveEnemyExplodingStatus explodingStatus = ExplosiveEnemyExplodingStatus.NORMAL;
 
+    private PlayerXPManager xpManager;
+    private EnemyGeneralProperties enemyProperties;
+
     private void Start()
     {
         var explosionCircle = transform.Find(GameObjectNameConstants.explosionCircle).transform;
@@ -14,6 +17,9 @@ public class ExplosiveSlimeExploding : MonoBehaviour
         var circleSize = explodingProperties.explosionRange * 2 * (Mathf.Pow(transform.localScale.x, -1));
 
         explosionCircle.localScale = new Vector3(circleSize, circleSize);
+
+        xpManager = GetComponent<Enemy>().xpManager;
+        enemyProperties = GetComponent<Enemy>().properties;
     }
 
     private void Update()
@@ -57,6 +63,7 @@ public class ExplosiveSlimeExploding : MonoBehaviour
             }
         }
 
+        xpManager.GainXP(enemyProperties.xpGiven);
         Destroy(gameObject);
     }
 

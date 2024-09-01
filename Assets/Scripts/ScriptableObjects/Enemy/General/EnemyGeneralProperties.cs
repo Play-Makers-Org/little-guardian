@@ -3,16 +3,19 @@
 [CreateAssetMenu(fileName = "NewEnemyGeneralProperty", menuName = "ScriptableObject/Enemy/EnemyGeneralProperty")]
 public class EnemyGeneralProperties : ScriptableObject
 {
-    public float maxHealth = 2f;
+    public float maxHealth;
 
-    public float contactDamage = 1f;
-    public float contactAttackCooldown = 0.2f;
+    public float contactDamage;
+    public float contactAttackCooldown;
+
+    public float xpGiven;
 
     private void OnEnable()
     {
         maxHealth = EnemyConstants.maxHealth;
         contactDamage = EnemyConstants.contactDamage;
         contactAttackCooldown = EnemyConstants.contactAttackCooldown;
+        xpGiven = EnemyConstants.xpGiven;
     }
 
     public void IncreaseHealth(float increaseNumber)
